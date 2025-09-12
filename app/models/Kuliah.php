@@ -17,11 +17,12 @@ class Kuliah
   // Ambil semua data kuliah dengan join (biar dapat nama mahasiswa, dosen, matkul)
   public function readAll()
   {
-    $query = "SELECT k.NIM, m.Nama AS Mahasiswa, k.NIP, d.Nama AS Dosen, k.KodeMatkul, mk.NamaMatkul, k.Nilai FROM Kuliah k
-              JOIN Mhs m ON k.NIM = m.NIM
-              JOIN Dosen d ON k.NIP = d.NIP
-              JOIN MataKuliah mk ON k.KodeMatkul = mk.KodeMatkul
-              ORDER BY m.Nama, mk.NamaMatkul";
+    $query = "SELECT k.*, m.Nama AS Mahasiswa, d.Nama AS Dosen, mk.NamaMatkul 
+            FROM Kuliah k
+            LEFT JOIN Mhs m ON k.NIM = m.NIM
+            LEFT JOIN Dosen d ON k.NIP = d.NIP
+            LEFT JOIN MataKuliah mk ON k.KodeMatkul = mk.KodeMatkul
+            ORDER BY m.Nama, mk.NamaMatkul";
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
     return $stmt;

@@ -25,9 +25,12 @@ class KuliahController
 
     public function index()
     {
-        $kuliahs = $this->kuliah->readAll();
-        $kuliah_list = $kuliahs->fetchAll(PDO::FETCH_ASSOC);
+        // Mendapatkan data dari model
+        $stmt = $this->kuliah->readAll();
+        // Mengubah hasil query menjadi array
+        $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        // Menyertakan view, sekarang variabel $kuliah_list sudah ada
         include '../views/kuliah/index.php';
     }
 

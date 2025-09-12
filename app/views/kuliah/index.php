@@ -23,18 +23,26 @@ include __DIR__ . '/../layout/header.php';
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($kuliah_list as $kuliah): ?>
-                    <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['Mahasiswa']) ?></td>
-                        <td class="py-4 px-6"><?= htmlspecialchars($kuliah['Dosen']) ?></td>
-                        <td class="py-4 px-6"><?= htmlspecialchars($kuliah['NamaMatkul']) ?></td>
-                        <td class="py-4 px-6 text-center"><?= htmlspecialchars($kuliah['Nilai']) ?></td>
-                        <td class="py-4 px-6 text-center">
-                            <a href="/proyek_kuliah/public/kuliah/edit/<?= $kuliah['NIM'] ?>/<?= $kuliah['NIP'] ?>/<?= $kuliah['KodeMatkul'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
-                            <a href="/proyek_kuliah/public/kuliah/delete/<?= $kuliah['NIM'] ?>/<?= $kuliah['NIP'] ?>/<?= $kuliah['KodeMatkul'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
-                        </td>
+                <?php
+                if (isset($kuliah_list) && is_array($kuliah_list) && count($kuliah_list) > 0):
+                ?>
+                    <?php foreach ($kuliah_list as $kuliah): ?>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($kuliah['Mahasiswa']) ?></td>
+                            <td class="py-4 px-6"><?= htmlspecialchars($kuliah['Dosen']) ?></td>
+                            <td class="py-4 px-6"><?= htmlspecialchars($kuliah['NamaMatkul']) ?></td>
+                            <td class="py-4 px-6 text-center"><?= htmlspecialchars($kuliah['Nilai']) ?></td>
+                            <td class="py-4 px-6 text-center">
+                                <a href="/proyek_kuliah/public/kuliah/edit/<?= $kuliah['NIM'] ?>/<?= $kuliah['NIP'] ?>/<?= $kuliah['KodeMatkul'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
+                                <a href="/proyek_kuliah/public/kuliah/delete/<?= $kuliah['NIM'] ?>/<?= $kuliah['NIP'] ?>/<?= $kuliah['KodeMatkul'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="5" class="py-4 px-6 text-center text-gray-400">Tidak ada data perkuliahan yang ditemukan.</td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>
