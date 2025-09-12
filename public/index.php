@@ -1,33 +1,46 @@
 <?php
 
-// Tentukan controller dan method dari URL
-$controllerName = isset($_GET['controller']) ? $_GET['controller'] : 'KuliahController';
-$methodName = isset($_GET['method']) ? $_GET['method'] : 'index';
+// Menguraikan URL yang diminta
+$request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
+$path = trim($request_uri[0], '/');
+$segments = explode('/', $path);
 
-// Tentukan path ke controller
-$controllerPath = '../app/controllers/' . $controllerName . '.php';
+// Menghapus nama direktori proyek dari segment jika ada
+// Sesuaikan 'proyek_kuliah/public' dengan struktur direktori Anda
+$base_path_segments = explode('/', 'proyek_kuliah/public');
+foreach ($base_path_segments as $index => $bp_segment) {
+    if (isset($segments[$index]) && $segments[$index] == $bp_segment) {
+        unset($segments[$index]);
+    }
+}
+$segments = array_values($segments);
 
-// Cek apakah file controller ada
-if (file_exists($controllerPath)) {
-    require_once $controllerPath;
+// Menentukan controller, method, dan parameter dari URL
+$controller_name = isset($segments[0]) && !empty($segments[0]) ? ucfirst($segments[0]) . 'Controller' : 'HomeController';
+$method_name = isset($segments[1]) && !empty($segments[1]) ? $segments[1] : 'index';
+$params = array_slice($segments, 2);
 
-    // Cek apakah class controller ada
-    if (class_exists($controllerName)) {
-        $controller = new $controllerName();
+// Memuat file controller yang sesuai
+$controller_file = '../app/controllers/' . $controller_name . '.php';
 
-        // Cek apakah method ada di dalam class controller
-        if (method_exists($controller, $methodName)) {
-            // Panggil method
-            $controller->$methodName();
+if (file_exists($controller_file)) {
+    require_once $controller_file;
+
+    // Membuat instance dari controller dan memanggil method-nya
+    if (class_exists($controller_name)) {
+        $controller = new $controller_name();
+
+        if (method_exists($controller, $method_name)) {
+            // Memanggil method dengan parameter jika ada
+            call_user_func_array([$controller, $method_name], $params);
         } else {
-            // Tampilkan error jika method tidak ditemukan
-            echo "Error: Method '$methodName' tidak ditemukan di Controller '$controllerName'.";
+            echo "Method not found: " . $method_name;
         }
     } else {
-        // Tampilkan error jika class tidak ditemukan
-        echo "Error: Class '$controllerName' tidak ditemukan.";
+        echo "Controller class not found: " . $controller_name;
     }
 } else {
-    // Tampilkan error jika file controller tidak ditemukan
-    echo "Error: Controller '$controllerName' tidak ditemukan.";
+    // Anda bisa membuat HomeController untuk halaman default
+    echo "<h1>Selamat Datang!</h1><p>Silakan pilih menu di atas.</p>";
+    // echo "Controller file not found: " . $controller_file;
 }

@@ -12,13 +12,12 @@
 
     <nav class="bg-gray-800 p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.php" class="text-white text-xl font-bold">🎓 Perkuliahan</a>
+            <a href="/proyek_kuliah/public/" class="text-white text-xl font-bold">🎓 Perkuliahan</a>
             <div class="space-x-4">
-                
-                <a href="index.php?page=mahasiswa" class="text-gray-300 hover:text-white">Mahasiswa</a>
-                <a href="index.php?page=dosen" class="text-gray-300 hover:text-white">Dosen</a>
-                <a href="index.php?page=matakuliah" class="text-gray-300 hover:text-white">Mata Kuliah</a>
-                <a href="index.php?page=kuliah" class="text-gray-300 hover:text-white">Data Kuliah</a>
+                <a href="/proyek_kuliah/public/mahasiswa" class="text-gray-300 hover:text-white">Mahasiswa</a>
+                <a href="/proyek_kuliah/public/dosen" class="text-gray-300 hover:text-white">Dosen</a>
+                <a href="/proyek_kuliah/public/matakuliah" class="text-gray-300 hover:text-white">Mata Kuliah</a>
+                <a href="/proyek_kuliah/public/kuliah" class="text-gray-300 hover:text-white">Data Kuliah</a>
             </div>
         </div>
     </nav>
