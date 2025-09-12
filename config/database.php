@@ -1,13 +1,26 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'Perkuliahan';
-$username = 'root';
-$password = '';
+class Database
+{
+    private $host = "localhost";
+    private $db_name = "Perkuliahan";
+    private $username = "root";
+    private $password = "";
+    public $conn;
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Koneksi ke database gagal: " . $e->getMessage());
+    public function getConnection()
+    {
+        $this->conn = null;
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $exception) {
+            die("Koneksi gagal: " . $exception->getMessage());
+        }
+        return $this->conn;
+    }
 }
