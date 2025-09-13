@@ -25,12 +25,11 @@ class KuliahController
 
     public function index()
     {
-        
+
         $stmt = $this->kuliah->readAll();
         $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         require_once __DIR__ . '/../views/kuliah/index.php';
-
     }
 
     public function create()

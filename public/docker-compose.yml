@@ -1,0 +1,56 @@
+version: "3.8"
+services:
+  web:
+    # Nama container
+    container_name: mvc-app
+    # Build image dari Dockerfile di direktori saat ini
+    build: .
+    # Map port 8080 di host ke port 80 di container
+    ports:
+      - "8080:80"
+    # Mount direktori proyek lokal ke dalam container,
+    # agar perubahan kode langsung terlihat tanpa rebuild
+    volumes:
+      - .:/var/www/html/
+    # Definisikan ketergantungan (dependencies)
+    depends_on:
+      - db
+    # Set environment variables untuk koneksi database
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_NAME=crud
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=password
+    # Set network
+    networks:
+      - app-network
+
+  db:
+    # Gunakan image MySQL versi 5.7
+    image: mysql:5.7
+    # Nama container
+    container_name: mysql-db
+    # Set environment variables untuk database
+    environment:
+      - MYSQL_DATABASE=crud
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root_password
+    # Map port 3306 di host ke port 3306 di container
+    ports:
+      - "3306:3306"
+    # Mount volume agar data database tetap ada meskipun container di-stop
+    volumes:
+      - db-data:/var/lib/mysql
+    # Set network
+    networks:
+      - app-network
+
+# Definisikan network
+networks:
+  app-network:
+    driver: bridge
+
+# Definisikan volume untuk penyimpanan data database
+volumes:
+  db-data:
