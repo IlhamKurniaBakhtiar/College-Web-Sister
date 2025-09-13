@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db   = "Perkuliahan"; // bisa kosong juga karena kita create database di SQL
+$db   = "Perkuliahan"; 
 
 $conn = new mysqli($host, $user, $pass);
 
@@ -10,7 +10,6 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Path ke file SQL
 $sqlFile = __DIR__ . "/database/migrations/perkuliahan.sql";
 
 if (!file_exists($sqlFile)) {
