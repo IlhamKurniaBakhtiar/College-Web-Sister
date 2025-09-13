@@ -65,7 +65,7 @@ include __DIR__ . '/../layout/header.php';
       <a href="/College-Web-Sister/public/kuliah" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
         Batal
       </a>
-      <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+      <button type="submit" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
         Update
       </button>
     </div>
