@@ -50,14 +50,25 @@ class Kuliah
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
-  public function update()
+  public function update($oldNIM, $oldNIP, $oldKodeMatkul)
   {
-    $query = "UPDATE " . $this->table . " SET Nilai=:Nilai WHERE NIM=:NIM AND NIP=:NIP AND KodeMatkul=:KodeMatkul";
+    $query = "UPDATE " . $this->table . " 
+                  SET NIM=:newNIM, NIP=:newNIP, KodeMatkul=:newKodeMatkul, Nilai=:Nilai 
+                  WHERE NIM=:oldNIM AND NIP=:oldNIP AND KodeMatkul=:oldKodeMatkul";
+
     $stmt = $this->conn->prepare($query);
-    $stmt->bindParam(":NIM", $this->NIM);
-    $stmt->bindParam(":NIP", $this->NIP);
-    $stmt->bindParam(":KodeMatkul", $this->KodeMatkul);
+
+    // Data baru
+    $stmt->bindParam(":newNIM", $this->NIM);
+    $stmt->bindParam(":newNIP", $this->NIP);
+    $stmt->bindParam(":newKodeMatkul", $this->KodeMatkul);
     $stmt->bindParam(":Nilai", $this->Nilai);
+
+    // Data lama
+    $stmt->bindParam(":oldNIM", $oldNIM);
+    $stmt->bindParam(":oldNIP", $oldNIP);
+    $stmt->bindParam(":oldKodeMatkul", $oldKodeMatkul);
+
     return $stmt->execute();
   }
 
