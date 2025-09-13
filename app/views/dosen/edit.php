@@ -24,7 +24,7 @@ include __DIR__ . '/../layout/header.php';
         </div>
         <div class="flex items-center justify-end">
             <a href="/College-Web-Sister/public/dosen" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
-            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Update</button>
+            <button type="submit" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">Update</button>
         </div>
     </form>
 </div>
