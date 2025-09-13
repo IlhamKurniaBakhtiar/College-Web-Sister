@@ -16,7 +16,7 @@ class KuliahController
 
     public function __construct()
     {
-        $this->db = (new database())->getConnection();
+        $this->db = (new Database())->getConnection();
         $this->kuliah = new Kuliah($this->db);
         $this->mahasiswa = new Mhs($this->db);
         $this->dosen = new Dosen($this->db);
@@ -25,7 +25,6 @@ class KuliahController
 
     public function index()
     {
-
         $stmt = $this->kuliah->readAll();
         $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -34,11 +33,11 @@ class KuliahController
 
     public function create()
     {
-        $mahasiswas = $this->mahasiswa->readAll();
-        $dosens = $this->dosen->readAll();
-        $matkuls = $this->matkul->readAll();
+        $mahasiswa = $this->mahasiswa->readAll();
+        $dosen = $this->dosen->readAll();
+        $matkul = $this->matkul->readAll();
 
-        require_once __DIR__ . '../views/kuliah/create.php';
+        require_once __DIR__ . '/../views/kuliah/create.php';
     }
 
     public function store()
@@ -58,22 +57,18 @@ class KuliahController
         }
     }
 
-    public function edit($params)
+    public function edit($nim, $nip, $kodeMatkul)
     {
-        $mahasiswas = $this->mahasiswa->readAll();
-        $dosens = $this->dosen->readAll();
-        $matkuls = $this->matkul->readAll();
+        $mahasiswa = $this->mahasiswa->readAll();
+        $dosen = $this->dosen->readAll();
+        $matkul = $this->matkul->readAll();
 
-        if (count($params) >= 3) {
-            $this->kuliah->NIM = $params[0];
-            $this->kuliah->NIP = $params[1];
-            $this->kuliah->KodeMatkul = $params[2];
-            $kuliah_data = $this->kuliah->readOne();
+        $this->kuliah->NIM = $nim;
+        $this->kuliah->NIP = $nip;
+        $this->kuliah->KodeMatkul = $kodeMatkul;
+        $kuliah_data = $this->kuliah->readOne();
 
-            include '../views/kuliah/edit.php';
-        } else {
-            echo "ID tidak ditemukan.";
-        }
+        require_once __DIR__ . '/../views/kuliah/edit.php';
     }
 
     public function update()
@@ -97,21 +92,17 @@ class KuliahController
         }
     }
 
-    public function delete($params)
+    public function delete($nim, $nip, $kodeMatkul)
     {
-        if (count($params) >= 3) {
-            $this->kuliah->NIM = $params[0];
-            $this->kuliah->NIP = $params[1];
-            $this->kuliah->KodeMatkul = $params[2];
+        $this->kuliah->NIM = $nim;
+        $this->kuliah->NIP = $nip;
+        $this->kuliah->KodeMatkul = $kodeMatkul;
 
-            if ($this->kuliah->delete()) {
-                header("Location: /College-Web-Sister/public/kuliah");
-                exit();
-            } else {
-                echo "Gagal menghapus data.";
-            }
+        if ($this->kuliah->delete()) {
+            header("Location: /College-Web-Sister/public/kuliah");
+            exit();
         } else {
-            echo "ID tidak ditemukan.";
+            echo "Gagal menghapus data.";
         }
     }
 }
