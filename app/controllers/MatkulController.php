@@ -59,7 +59,7 @@ class MataKuliahController
       $this->matkul->Semester = $_POST['semester'];
 
       if ($this->matkul->update()) {
-        header('Location: /proyek_kuliah/public/matkul');
+        header('Location: /College-Web-Sister/public/matakulia');
       } else {
         echo "Gagal mengupdate data mata kuliah.";
       }

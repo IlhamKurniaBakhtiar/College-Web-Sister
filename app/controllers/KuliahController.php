@@ -1,10 +1,10 @@
 <?php
 
-require_once '../models/Kuliah.php';
-require_once '../models/Mhs.php';
-require_once '../models/Dosen.php';
-require_once '../models/MataKuliah.php';
-require_once '../config/database.php';
+require_once __DIR__ . '/../models/Kuliah.php';
+require_once __DIR__ . '/../models/Mahasiswa.php';
+require_once __DIR__ . '/../models/Matkul.php';
+require_once __DIR__ . '/../models/Dosen.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class KuliahController
 {
@@ -91,7 +91,7 @@ class KuliahController
             $this->kuliah->Nilai = $_POST['nilai'];
 
             if ($this->kuliah->update($oldNIM, $oldNIP, $oldKodeMatkul)) {
-                header("Location: /proyek_kuliah/public/kuliah");
+                header("Location: /College-Web-Sister/public/kuliah");
                 exit();
             } else {
                 echo "Gagal memperbarui data.";

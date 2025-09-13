@@ -1,8 +1,7 @@
 <?php
 
-require_once '../app/models/Mahasiswa.php';
-require_once '../config/database.php';
-
+require_once __DIR__ . '/../models/Mahasiswa.php';
+require_once __DIR__ . '/../../config/database.php';
 class MahasiswaController
 {
 
@@ -11,8 +10,9 @@ class MahasiswaController
 
     public function __construct()
     {
-        $database = new PDO("mysql:host=localhost;dbname=Perkuliahan", "root", "");
-        $this->mahasiswa = new Mhs($database);
+        $database = new Database();
+        $db = $database->getConnection();
+        $this->mahasiswa = new Mhs($db);
     }
 
     public function index()
@@ -37,7 +37,7 @@ class MahasiswaController
             $this->mahasiswa->Alamat = $_POST['alamat'];
 
             if ($this->mahasiswa->create()) {
-                header('Location: /proyek_kuliah/public/mahasiswa');
+                header('Location: /College-Web-Sister/public/mahasiswa');
             } else {
                 echo "Gagal menyimpan data mahasiswa.";
             }

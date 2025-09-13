@@ -5,7 +5,7 @@ include __DIR__ . '/../layout/header.php';
 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
     <h1 class="text-3xl font-bold text-gray-800 mb-6">Tambah Dosen Baru</h1>
 
-    <form action="/proyek_kuliah/public/dosen/store" method="POST">
+    <form action="/College=Web-Sister/public/dosen/store" method="POST">
         <div class="mb-4">
             <label for="nip" class="block text-gray-700 text-sm font-bold mb-2">NIP</label>
             <input type="text" id="nip" name="nip" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
@@ -19,7 +19,7 @@ include __DIR__ . '/../layout/header.php';
             <textarea id="alamat" name="alamat" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
         </div>
         <div class="flex items-center justify-end">
-            <a href="/proyek_kuliah/public/dosen" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
+            <a href="/College=Web-Sister/public/dosen" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Simpan</button>
         </div>
     </form>
