@@ -1,7 +1,7 @@
 <?php
 
-require_once '../app/models/Dosen.php';
-require_once '../config/database.php';
+require_once __DIR__ . '/../models/Dosen.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class DosenController
 {
@@ -11,8 +11,9 @@ class DosenController
 
     public function __construct()
     {
-        $database = new PDO("mysql:host=localhost;dbname=Perkuliahan", "root", "");
-        $this->dosen = new Dosen($database);
+        $database = new Database();
+        $db = $database->getConnection();
+        $this->dosen = new Dosen($db);
     }
 
     public function index()
@@ -32,13 +33,18 @@ class DosenController
     public function store()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          
+
+            if (empty($_POST['nip']) || empty($_POST['nama'])) {
+                echo "NIP dan Nama tidak boleh kosong.";
+                return;
+            }
+
             $this->dosen->NIP = $_POST['nip'];
             $this->dosen->Nama = $_POST['nama'];
             $this->dosen->Alamat = $_POST['alamat'];
 
             if ($this->dosen->create()) {  
-                header('Location: /proyek_kuliah/public/dosen');
+                header('Location: /College-Web-Sister/public/dosen');
             } else {
                 echo "Gagal menyimpan data dosen.";
             }
@@ -61,7 +67,7 @@ class DosenController
             $this->dosen->Alamat = $_POST['alamat'];
 
             if ($this->dosen->update()) {
-                header('Location: /proyek_kuliah/public/dosen');
+                header('Location: /College-Web-Sister/public/dosen');
             } else {
                 echo "Gagal mengupdate data dosen.";
             }
@@ -73,7 +79,7 @@ class DosenController
         $this->dosen->NIP = $nip;
 
         if ($this->dosen->delete()) {
-            header('Location: /proyek_kuliah/public/dosen');
+            header('Location: /College-Web-Sister/public/dosen');
         } else {
             echo "Gagal menghapus data dosen.";
         }

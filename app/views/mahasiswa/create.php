@@ -6,7 +6,7 @@ include __DIR__ . '/../layout/header.php';
 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
     <h1 class="text-3xl font-bold text-gray-800 mb-6">Tambah Mahasiswa Baru</h1>
 
-    <form action="/proyek_kuliah/public/mahasiswa/store" method="POST">
+    <form action="/College=Web-Sister/public/mahasiswa/store" method="POST">
         <div class="mb-4">
             <label for="nim" class="block text-gray-700 text-sm font-bold mb-2">NIM</label>
             <input type="text" id="nim" name="nim" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" required>

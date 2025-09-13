@@ -7,7 +7,7 @@ include __DIR__ . '/../layout/header.php';
 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
     <h1 class="text-3xl font-bold text-gray-800 mb-6">Edit Mata Kuliah</h1>
 
-    <form action="/proyek_kuliah/public/matakuliah/update" method="POST">
+    <form action="/College=Web-Sister/public/matakuliah/update" method="POST">
         <input type="hidden" name="kode_matkul" value="<?= htmlspecialchars($matakuliah['kode_matkul']) ?>">
 
         <div class="mb-4">
@@ -29,7 +29,7 @@ include __DIR__ . '/../layout/header.php';
             </div>
         </div>
         <div class="flex items-center justify-end">
-            <a href="/proyek_kuliah/public/matakuliah" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
+            <a href="/College=Web-Sister/public/matakuliah" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Update</button>
         </div>
     </form>

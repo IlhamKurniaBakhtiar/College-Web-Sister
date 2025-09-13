@@ -1,10 +1,10 @@
 <?php
 
-require_once '../models/Kuliah.php';
-require_once '../models/Mhs.php';
-require_once '../models/Dosen.php';
-require_once '../models/MataKuliah.php';
-require_once '../config/database.php';
+require_once __DIR__ . '/../models/Kuliah.php';
+require_once __DIR__ . '/../models/Mahasiswa.php';
+require_once __DIR__ . '/../models/Matkul.php';
+require_once __DIR__ . '/../models/Dosen.php';
+require_once __DIR__ . '/../../config/database.php';
 
 class KuliahController
 {
@@ -25,10 +25,12 @@ class KuliahController
 
     public function index()
     {
+        
         $stmt = $this->kuliah->readAll();
         $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        require_once __DIR__ . '../views/kuliah/index.php';
+        require_once __DIR__ . '/../views/kuliah/index.php';
+
     }
 
     public function create()
@@ -49,7 +51,7 @@ class KuliahController
             $this->kuliah->Nilai = $_POST['nilai'];
 
             if ($this->kuliah->create()) {
-                header("Location: /proyek_kuliah/public/kuliah");
+                header("Location: /College-Web-Sister/public/kuliah");
                 exit();
             } else {
                 echo "Gagal menambahkan data.";
@@ -88,7 +90,7 @@ class KuliahController
             $this->kuliah->Nilai = $_POST['nilai'];
 
             if ($this->kuliah->update($oldNIM, $oldNIP, $oldKodeMatkul)) {
-                header("Location: /proyek_kuliah/public/kuliah");
+                header("Location: /College-Web-Sister/public/kuliah");
                 exit();
             } else {
                 echo "Gagal memperbarui data.";
@@ -104,7 +106,7 @@ class KuliahController
             $this->kuliah->KodeMatkul = $params[2];
 
             if ($this->kuliah->delete()) {
-                header("Location: /proyek_kuliah/public/kuliah");
+                header("Location: /College-Web-Sister/public/kuliah");
                 exit();
             } else {
                 echo "Gagal menghapus data.";
