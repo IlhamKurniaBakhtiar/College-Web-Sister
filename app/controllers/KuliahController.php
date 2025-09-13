@@ -25,13 +25,11 @@ class KuliahController
 
     public function index()
     {
-        // Mendapatkan data dari model
+        
         $stmt = $this->kuliah->readAll();
-        // Mengubah hasil query menjadi array
         $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Menyertakan view, sekarang variabel $kuliah_list sudah ada
-        include '../views/kuliah/index.php';
+        require_once __DIR__ . '/../views/kuliah/index.php';
     }
 
     public function create()
@@ -52,7 +50,7 @@ class KuliahController
             $this->kuliah->Nilai = $_POST['nilai'];
 
             if ($this->kuliah->create()) {
-                header("Location: /proyek_kuliah/public/kuliah");
+                header("Location: /College-Web-Sister/public/kuliah");
                 exit();
             } else {
                 echo "Gagal menambahkan data.";
@@ -107,7 +105,7 @@ class KuliahController
             $this->kuliah->KodeMatkul = $params[2];
 
             if ($this->kuliah->delete()) {
-                header("Location: /proyek_kuliah/public/kuliah");
+                header("Location: /College-Web-Sister/public/kuliah");
                 exit();
             } else {
                 echo "Gagal menghapus data.";

@@ -26,12 +26,12 @@ include __DIR__ . '/../layout/header.php';
             <tbody>
                 <?php foreach ($mahasiswa_list as $mhs): ?>
                     <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($mhs['nim']) ?></td>
-                        <td class="py-4 px-6"><?= htmlspecialchars($mhs['nama']) ?></td>
-                        <td class="py-4 px-6"><?= htmlspecialchars($mhs['alamat']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($mhs['NIM']) ?></td>
+                        <td class="py-4 px-6"><?= htmlspecialchars($mhs['Nama']) ?></td>
+                        <td class="py-4 px-6"><?= htmlspecialchars($mhs['Alamat']) ?></td>
                         <td class="py-4 px-6 text-center">
-                            <a href="/College=Web-Sister/public/mahasiswa/edit/<?= $mhs['nim'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
-                            <a href="/College=Web-Sister/public/mahasiswa/delete/<?= $mhs['nim'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
+                            <a href="/College=Web-Sister/public/mahasiswa/edit/<?= $mhs['NIM'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
+                            <a href="/College=Web-Sister/public/mahasiswa/delete/<?= $mhs['NIM'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

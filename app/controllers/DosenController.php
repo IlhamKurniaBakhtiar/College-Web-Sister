@@ -67,7 +67,7 @@ class DosenController
             $this->dosen->Alamat = $_POST['alamat'];
 
             if ($this->dosen->update()) {
-                header('Location: /proyek_kuliah/public/dosen');
+                header('Location: /College-Web-Sister/public/dosen');
             } else {
                 echo "Gagal mengupdate data dosen.";
             }
@@ -79,7 +79,7 @@ class DosenController
         $this->dosen->NIP = $nip;
 
         if ($this->dosen->delete()) {
-            header('Location: /proyek_kuliah/public/dosen');
+            header('Location: /College-Web-Sister/public/dosen');
         } else {
             echo "Gagal menghapus data dosen.";
         }

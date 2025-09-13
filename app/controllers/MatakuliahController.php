@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../config/Database.php';
-require_once __DIR__ . '/../models/MataKuliah.php';
+require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../models/Matkul.php';
 
-class MataKuliahController
+class MatakuliahController
 {
   private $matkul;
 
@@ -18,12 +18,12 @@ class MataKuliahController
     $stmt = $this->matkul->readAll();
     $matkul_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    require_once __DIR__ . '/../views/matkul/index.php';
+    require_once __DIR__ . '/../views/matakuliah/index.php';
   }
 
   public function create()
   {
-    require_once __DIR__ . '/../views/matkul/create.php';
+    require_once __DIR__ . '/../views/matakuliah/create.php';
   }
 
   public function store()
@@ -35,7 +35,7 @@ class MataKuliahController
       $this->matkul->Semester = $_POST['semester'];
 
       if ($this->matkul->create()) {
-        header('Location: /proyek_kuliah/public/matkul');
+        header('Location: /College-Web-Sister/public/matkul');
       } else {
         echo "Gagal menyimpan data mata kuliah.";
       }
@@ -47,7 +47,7 @@ class MataKuliahController
     $this->matkul->KodeMatkul = $kode_matkul;
     $matkul = $this->matkul->readOne();
 
-    require_once __DIR__ . '/../views/matkul/edit.php';
+    require_once __DIR__ . '/../views/matakuliah/edit.php';
   }
 
   public function update()
@@ -59,7 +59,7 @@ class MataKuliahController
       $this->matkul->Semester = $_POST['semester'];
 
       if ($this->matkul->update()) {
-        header('Location: /College-Web-Sister/public/matakulia');
+        header('Location: /College-Web-Sister/public/matakuliah');
       } else {
         echo "Gagal mengupdate data mata kuliah.";
       }
@@ -71,7 +71,7 @@ class MataKuliahController
     $this->matkul->KodeMatkul = $kode_matkul;
 
     if ($this->matkul->delete()) {
-      header('Location: /proyek_kuliah/public/matkul');
+      header('Location: /College-Web-Sister/public/matakuliah');
     } else {
       echo "Gagal menghapus data mata kuliah.";
     }

@@ -24,15 +24,15 @@ include __DIR__ . '/../layout/header.php';
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($matakuliah_list as $matkul): ?>
+                <?php foreach ($matkul_list as $matkul): ?>
                     <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($matkul['kode_matkul']) ?></td>
-                        <td class="py-4 px-6"><?= htmlspecialchars($matkul['nama_matkul']) ?></td>
-                        <td class="py-4 px-6 text-center"><?= htmlspecialchars($matkul['sks']) ?></td>
-                        <td class="py-4 px-6 text-center"><?= htmlspecialchars($matkul['semester']) ?></td>
+                        <td class="py-4 px-6 font-medium text-gray-900"><?= htmlspecialchars($matkul['KodeMatkul']) ?></td>
+                        <td class="py-4 px-6"><?= htmlspecialchars($matkul['NamaMatkul']) ?></td>
+                        <td class="py-4 px-6 text-center"><?= htmlspecialchars($matkul['SKS']) ?></td>
+                        <td class="py-4 px-6 text-center"><?= htmlspecialchars($matkul['Semester']) ?></td>
                         <td class="py-4 px-6 text-center">
-                            <a href="/College=Web-Sister/public/matakuliah/delete/<?= $matkul['kode_matkul'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
-                            <a href="/College=Web-Sister/public/matakuliah/edit/<?= $matkul['kode_matkul'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
+                            <a href="/College=Web-Sister/public/matakuliah/delete/<?= $matkul['KodeMatkul'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
+                            <a href="/College=Web-Sister/public/matakuliah/edit/<?= $matkul['KodeMatkul'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

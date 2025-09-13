@@ -14,7 +14,7 @@ class Kuliah
     $this->conn = $db;
   }
 
-  // Ambil semua data kuliah dengan join (biar dapat nama mahasiswa, dosen, matkul)
+  // Melakukan JOIN untuk mendapatkan nama mahasiswa, dosen, dan mata kuliah
   public function readAll()
   {
     $query = "SELECT k.*, m.Nama AS Mahasiswa, d.Nama AS Dosen, mk.NamaMatkul 
@@ -28,7 +28,6 @@ class Kuliah
     return $stmt;
   }
 
-  // Tambah data kuliah
   public function create()
   {
     $query = "INSERT INTO " . $this->table . " (NIM, NIP, KodeMatkul, Nilai) VALUES (:NIM, :NIP, :KodeMatkul, :Nilai)";
