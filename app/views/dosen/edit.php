@@ -7,7 +7,7 @@ include __DIR__ . '/../layout/header.php';
 <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
     <h1 class="text-3xl font-bold text-gray-800 mb-6">Edit Data Dosen</h1>
 
-    <form action="/College=Web-Sister/public/dosen/update" method="POST">
+    <form action="/College-Web-Sister/public/dosen/update" method="POST">
         <input type="hidden" name="nip" value="<?= htmlspecialchars($dosen['NIP']) ?>">
 
         <div class="mb-4">
