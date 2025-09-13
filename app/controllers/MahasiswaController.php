@@ -31,7 +31,7 @@ class MahasiswaController
     public function store()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
             $this->mahasiswa->NIM = $_POST['nim'];
             $this->mahasiswa->Nama = $_POST['nama'];
             $this->mahasiswa->Alamat = $_POST['alamat'];
@@ -48,7 +48,7 @@ class MahasiswaController
     public function edit($nim)
     {
         $this->mahasiswa->NIM = $nim;
-        $mhs = $this->mahasiswa->readOne();
+        $mahasiswa = $this->mahasiswa->readOne();
 
         require_once '../app/views/mahasiswa/edit.php';
     }
@@ -56,7 +56,7 @@ class MahasiswaController
     public function update()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
             $this->mahasiswa->NIM = $_POST['nim'];
             $this->mahasiswa->Nama = $_POST['nama'];
             $this->mahasiswa->Alamat = $_POST['alamat'];

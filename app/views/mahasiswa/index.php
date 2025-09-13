@@ -8,7 +8,7 @@ include __DIR__ . '/../layout/header.php';
 <div class="bg-white p-8 rounded-lg shadow-md">
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-gray-800">Data Mahasiswa</h1>
-        <a href="/College=Web-Sister/public/mahasiswa/create" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+        <a href="/College-Web-Sister/public/mahasiswa/create" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
             + Tambah Mahasiswa
         </a>
     </div>
@@ -30,8 +30,8 @@ include __DIR__ . '/../layout/header.php';
                         <td class="py-4 px-6"><?= htmlspecialchars($mhs['Nama']) ?></td>
                         <td class="py-4 px-6"><?= htmlspecialchars($mhs['Alamat']) ?></td>
                         <td class="py-4 px-6 text-center">
-                            <a href="/College=Web-Sister/public/mahasiswa/edit/<?= $mhs['NIM'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
-                            <a href="/College=Web-Sister/public/mahasiswa/delete/<?= $mhs['NIM'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
+                            <a href="/College-Web-Sister/public/mahasiswa/edit/<?= $mhs['NIM'] ?>" class="font-medium text-blue-600 hover:underline mr-3">Edit</a>
+                            <a href="/College-Web-Sister/public/mahasiswa/delete/<?= $mhs['NIM'] ?>" class="font-medium text-red-600 hover:underline" onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

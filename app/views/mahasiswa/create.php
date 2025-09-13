@@ -20,7 +20,7 @@ include __DIR__ . '/../layout/header.php';
             <textarea id="alamat" name="alamat" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
         </div>
         <div class="flex items-center justify-end">
-            <a href="/proyek_kuliah/public/mahasiswa" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
+            <a href="/College-Web-Sister/public/mahasiswa" class="text-gray-600 hover:text-gray-800 mr-4">Batal</a>
             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg">Simpan</button>
         </div>
     </form>
