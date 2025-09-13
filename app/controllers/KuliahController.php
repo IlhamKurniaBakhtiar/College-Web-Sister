@@ -30,6 +30,7 @@ class KuliahController
         $kuliah_list = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         require_once __DIR__ . '/../views/kuliah/index.php';
+
     }
 
     public function create()
@@ -38,7 +39,7 @@ class KuliahController
         $dosens = $this->dosen->readAll();
         $matkuls = $this->matkul->readAll();
 
-        include '../views/kuliah/create.php';
+        require_once __DIR__ . '../views/kuliah/create.php';
     }
 
     public function store()
