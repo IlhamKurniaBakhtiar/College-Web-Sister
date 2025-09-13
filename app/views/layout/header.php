@@ -13,11 +13,24 @@
     <nav class="bg-gray-800 p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <a href="/College-Web-Sister/public/" class="text-white text-xl font-bold">🎓 Perkuliahan</a>
-            <div class="space-x-4">
+
+            <div class="space-x-4 flex items-center">
                 <a href="/College-Web-Sister/public/mahasiswa" class="text-gray-300 hover:text-white">Mahasiswa</a>
                 <a href="/College-Web-Sister/public/dosen" class="text-gray-300 hover:text-white">Dosen</a>
                 <a href="/College-Web-Sister/public/matakuliah" class="text-gray-300 hover:text-white">Mata Kuliah</a>
                 <a href="/College-Web-Sister/public/kuliah" class="text-gray-300 hover:text-white">Data Kuliah</a>
+
+                <?php if (isset($_SESSION['user'])): ?>
+                    <a href="/College-Web-Sister/public/auth/profile"
+                        class="text-gray-300 hover:text-white font-semibold">
+                        👤 <?= htmlspecialchars($_SESSION['user']['username']) ?>
+                    </a>
+                <?php else: ?>
+                    <a href="/College-Web-Sister/public/auth/login"
+                        class="text-gray-300 hover:text-white font-semibold">
+                        Login
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
