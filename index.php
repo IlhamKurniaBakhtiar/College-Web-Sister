@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/config/database.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -20,7 +20,7 @@ $controller_name = !empty($segments[0]) ? ucfirst(strtolower($segments[0])) . 'C
 $method_name     = !empty($segments[1]) ? strtolower($segments[1]) : 'index';
 $params          = array_slice($segments, 2);
 
-$controller_file = __DIR__ . '/../app/controllers/' . $controller_name . '.php';
+$controller_file = __DIR__ . '/app/controllers/' . $controller_name . '.php';
 
 if (!isset($_SESSION['user']) && $controller_name !== 'AuthController') {
     header("Location: /College-Web-Sister/public/auth/login");
@@ -55,7 +55,7 @@ if (file_exists($controller_file)) {
         echo "Error 404: Controller class '$controller_name' not found.";
     }
 } else {
-    require_once __DIR__ . '/../app/controllers/HomeController.php';
+    require_once __DIR__ . '/app/controllers/HomeController.php';
     $homeController = new HomeController();
     $homeController->index();
 }
