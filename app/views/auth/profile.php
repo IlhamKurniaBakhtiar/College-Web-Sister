@@ -3,17 +3,10 @@ $pageTitle = 'Profil';
 include __DIR__ . '/../layout/header.php';
 ?>
 
-<<<<<<< HEAD
 <div class="flex items-center justify-center bg-stone-100">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-stone-800">Profil</h1>
-=======
-<div class="flex items-center justify-center bg-gray-100">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800">Profil</h1>
->>>>>>> 27166ac457e8beac49d6da161826a5f52c3b11c5
             <a href="/College-Web-Sister/public/auth/logout"
                 class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
                 Logout
@@ -21,11 +14,7 @@ include __DIR__ . '/../layout/header.php';
         </div>
 
         <div class="space-y-4">
-<<<<<<< HEAD
             <p class="text-stone-700 text-lg">
-=======
-            <p class="text-gray-700 text-lg">
->>>>>>> 27166ac457e8beac49d6da161826a5f52c3b11c5
                 Selamat datang,
                 <span class="font-bold text-indigo-600 inline-flex items-center gap-1">
                     <?= htmlspecialchars($displayName) ?>
@@ -35,15 +24,9 @@ include __DIR__ . '/../layout/header.php';
                 </span>
             </p>
 
-<<<<<<< HEAD
             <div class="mt-6 p-6 bg-stone-50 rounded-lg shadow-inner">
                 <h2 class="text-xl font-semibold text-stone-700 mb-4">Detail Akun</h2>
                 <ul class="space-y-2 text-stone-600">
-=======
-            <div class="mt-6 p-6 bg-gray-50 rounded-lg shadow-inner">
-                <h2 class="text-xl font-semibold text-gray-700 mb-4">Detail Akun</h2>
-                <ul class="space-y-2 text-gray-600">
->>>>>>> 27166ac457e8beac49d6da161826a5f52c3b11c5
                     <li><strong>Username:</strong> <?= htmlspecialchars($user['username']) ?></li>
                     <li><strong>Email:</strong> <?= htmlspecialchars($user['email'] ?? '-') ?></li>
                     <?php if (!empty($user['nama'])): ?>
@@ -53,11 +36,7 @@ include __DIR__ . '/../layout/header.php';
 
                 <div class="mt-6 flex space-x-4">
                     <a href="/College-Web-Sister/public/auth/editProfile"
-<<<<<<< HEAD
                         class="bg-stone-700 hover:bg-stone-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-=======
-                        class="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
->>>>>>> 27166ac457e8beac49d6da161826a5f52c3b11c5
                         Edit Profil
                     </a>
                 </div>
